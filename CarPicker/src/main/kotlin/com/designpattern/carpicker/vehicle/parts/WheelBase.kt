@@ -1,5 +1,7 @@
 package com.designpattern.carpicker.vehicle.parts
 
+import com.designpattern.carpicker.vehicle.parts.wheel.Wheel
+
 class WheelBase (
     private val size: WheelBase.Size,
     val chasis: Chasis
