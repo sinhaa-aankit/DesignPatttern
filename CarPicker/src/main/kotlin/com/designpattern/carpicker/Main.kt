@@ -5,16 +5,18 @@ import com.designpattern.carpicker.vehicle.parts.Chasis
 import com.designpattern.carpicker.vehicle.parts.Engine
 import com.designpattern.carpicker.vehicle.parts.Transmission
 import com.designpattern.carpicker.vehicle.parts.WheelBase
+import com.designpattern.carpicker.vehicle.parts.seats.Seat
 import com.designpattern.carpicker.vehicle.parts.wheel.Wheel
-import com.designpattern.carpicker.vehicle.parts.wheel.WheelFactory
 
 fun main() {
     println("Hello World")
     val hondaCity = Vehicle(
         WheelBase(
             WheelBase.Size.MEDIUM,
-            Chasis(Chasis.Type.SEDAN),
-            WheelFactory(Wheel.Type.STEEL)
+            Chasis(Chasis.Type.SEDAN,
+            Seat.Factory(Seat.Upholstery.CLOTH)
+                ),
+            Wheel.Factory(Wheel.Type.STEEL)
         ),
         Engine(
             Engine.Type.DIESEL,
@@ -24,8 +26,10 @@ fun main() {
     val tesla = Vehicle(
         WheelBase(
             WheelBase.Size.MEDIUM,
-            Chasis(Chasis.Type.PICKUP),
-            WheelFactory(Wheel.Type.CARBONFIBRE)
+            Chasis(Chasis.Type.PICKUP,
+                Seat.Factory(Seat.Upholstery.Leather)
+            ),
+            Wheel.Factory(Wheel.Type.CARBONFIBRE)
         ),
         Engine(
             Engine.Type.ELECTRIC,

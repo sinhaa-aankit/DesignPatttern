@@ -1,12 +1,11 @@
 package com.designpattern.carpicker.vehicle.parts
 
 import com.designpattern.carpicker.vehicle.parts.wheel.Wheel
-import com.designpattern.carpicker.vehicle.parts.wheel.WheelFactory
 
 class WheelBase (
     private val size: WheelBase.Size,
     val chasis: Chasis,
-    val wheelFactory: WheelFactory
+    val wheelFactory: Wheel.Factory
 
     ) : Part{
     val wheels: List<Wheel> = listOf(

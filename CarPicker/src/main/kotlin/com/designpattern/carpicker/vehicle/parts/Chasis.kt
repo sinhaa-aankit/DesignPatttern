@@ -2,10 +2,20 @@ package com.designpattern.carpicker.vehicle.parts
 
 import com.designpattern.carpicker.vehicle.parts.seats.Seat
 
-class Chasis (val type : Type) : Part {
+class Chasis (
+    val type : Type,
+    val seatFactory: Seat.Factory
+
+    ) : Part {
+
     val seats: List<Seat> = listOf(
-        Seat(), Seat(), Seat(), Seat()
+        seatFactory.createSeat(),
+        seatFactory.createSeat(),
+        seatFactory.createSeat(),
+        seatFactory.createSeat()
     )
+
+
     override val selfPrice: Int
         get() = when(this.type){
             Type.HATCHBACK -> 150000
